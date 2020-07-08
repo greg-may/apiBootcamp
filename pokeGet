@@ -1,0 +1,41 @@
+// Just a quick Javascript XMLHttp request to go along with a course
+//This makes a request and loops through the first 20 results so that they can be displayed on am HTML page. 
+
+
+var request = new XMLHttpRequest();
+
+request.open('GET', 'https://pokeapi.co/api/v2/pokemon');
+
+
+
+
+request.onload = function() {
+
+	var response = request.response;
+	var data = JSON.parse(response);
+
+	console.log(data);
+	
+	//debugging to see if I get a response on the variable creation and console output
+	var name = data.results[18].name;
+	
+	console.log(name);
+
+	// loop through to get the first 20 
+	for(let i=0; i<20; i++){
+	
+	var newName = data.results[i].name;
+	var pokemon = document.createElement('li');
+	pokemon.innerHTML = newName;
+	document.body.appendChild(pokemon);
+
+	
+	}
+
+
+	
+
+
+};
+
+request.send();
