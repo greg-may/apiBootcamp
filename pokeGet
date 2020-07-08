@@ -28,6 +28,12 @@ request.onload = function() {
 	var pokemon = document.createElement('li');
 	pokemon.innerHTML = newName;
 	document.body.appendChild(pokemon);
+	
+	//this will now pull the associated url
+	var url = data.results[i].url;
+	var pokemon = document.createElement('li');
+	pokemon.innerHTML = url;
+	document.body.appendChild(pokemon);
 
 	
 	}
